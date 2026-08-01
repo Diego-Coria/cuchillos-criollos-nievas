@@ -1,0 +1,113 @@
+.admin-page {
+  min-height: 100vh;
+  padding: 2rem 1.25rem 3rem;
+  background: #120e0a;
+  color: #f4ead7;
+}
+
+.admin-page__inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.admin-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.admin-top h1 {
+  margin: 0 0 0.4rem;
+}
+
+.admin-top p {
+  margin: 0;
+  color: #c9b89a;
+}
+
+.admin-top a {
+  color: #f0d39a;
+}
+
+.admin-top__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.admin-banner,
+.admin-message {
+  background: rgba(200, 155, 75, 0.12);
+  border: 1px solid rgba(240, 211, 154, 0.25);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  color: #f0d39a;
+  margin-bottom: 1rem;
+}
+
+.admin-login,
+.admin-session,
+.admin-card {
+  background: rgba(255, 248, 235, 0.04);
+  border: 1px solid rgba(240, 211, 154, 0.18);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-login {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 420px;
+}
+
+.admin-login label,
+.admin-card label {
+  display: grid;
+  gap: 0.35rem;
+  color: #c9b89a;
+  font-size: 0.9rem;
+}
+
+.admin-login input,
+.admin-card input[type='text'],
+.admin-card input[type='number'],
+.admin-card input:not([type='checkbox']) {
+  border: 1px solid rgba(240, 211, 154, 0.25);
+  border-radius: 10px;
+  background: #1a140f;
+  color: #f4ead7;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+}
+
+.admin-login button,
+.admin-session button,
+.admin-card button {
+  border: 0;
+  border-radius: 999px;
+  background: #c89b4b;
+  color: #1b140d;
+  font-weight: 700;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.admin-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.admin-card {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.admin-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

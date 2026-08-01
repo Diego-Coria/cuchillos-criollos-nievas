@@ -1,0 +1,135 @@
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(8, 6, 4, 0.92);
+  display: flex;
+  flex-direction: column;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.lightbox__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.lightbox__title {
+  margin: 0;
+  color: #f4ead7;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.lightbox__close {
+  border: 1px solid rgba(240, 211, 154, 0.35);
+  background: transparent;
+  color: #f0d39a;
+  border-radius: 999px;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.lightbox__stage {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 0.5rem 1rem 1rem;
+}
+
+.lightbox__image {
+  max-width: min(100%, 960px);
+  max-height: min(72vh, 820px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: rgba(18, 14, 10, 0.75);
+  color: #f0d39a;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.lightbox__nav--prev {
+  left: 0.75rem;
+}
+
+.lightbox__nav--next {
+  right: 0.75rem;
+}
+
+.lightbox__footer {
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.lightbox__counter {
+  color: #c9b89a;
+  font-size: 0.85rem;
+}
+
+.lightbox__thumbs {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  max-width: 100%;
+  padding-bottom: 0.25rem;
+}
+
+.lightbox__thumb {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  background: #1a140f;
+  cursor: pointer;
+}
+
+.lightbox__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.lightbox__thumb--active {
+  border-color: #c89b4b;
+}
+
+@media (max-width: 640px) {
+  .lightbox__image {
+    max-height: 62vh;
+  }
+
+  .lightbox__nav {
+    width: 42px;
+    height: 42px;
+  }
+}

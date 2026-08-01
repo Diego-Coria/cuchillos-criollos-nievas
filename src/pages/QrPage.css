@@ -1,0 +1,139 @@
+.qr-page {
+  min-height: 100vh;
+  padding: 1.5rem 1rem 3rem;
+  padding-top: max(1.5rem, env(safe-area-inset-top));
+  background:
+    radial-gradient(circle at top, rgba(200, 155, 75, 0.14), transparent 40%),
+    #120e0a;
+  color: #f4ead7;
+}
+
+.qr-page__inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.qr-page__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.qr-page__top h1 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.qr-page__top p {
+  margin: 0;
+  color: #c9b89a;
+}
+
+.qr-page__links {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.qr-page__links a {
+  color: #f0d39a;
+}
+
+.qr-card {
+  background: #fff8eb;
+  color: #1b140d;
+  border-radius: 18px;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.qr-card__brand {
+  margin: 0 0 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.qr-card img {
+  width: min(280px, 70vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.qr-card__url {
+  margin: 1rem 0 0;
+  word-break: break-all;
+  font-size: 0.9rem;
+  color: #5a4a36;
+}
+
+.qr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.qr-actions .btn-primary,
+.qr-actions .btn-secondary {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.7rem 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.qr-actions .btn-primary {
+  background: #c89b4b;
+  color: #1b140d;
+}
+
+.qr-actions .btn-secondary {
+  background: transparent;
+  color: #f0d39a;
+  border: 1px solid rgba(240, 211, 154, 0.4);
+}
+
+.qr-steps {
+  color: #c9b89a;
+  padding-left: 1.2rem;
+  line-height: 1.7;
+}
+
+.qr-steps code {
+  color: #f0d39a;
+}
+
+.muted {
+  color: #5a4a36;
+}
+
+.warning {
+  color: #8a3b12;
+  margin-top: 0.75rem;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .qr-page {
+    background: #fff;
+    padding: 0;
+  }
+
+  .qr-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}

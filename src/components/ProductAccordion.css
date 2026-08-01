@@ -1,0 +1,49 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.accordion__section {
+  border: 1px solid rgba(240, 211, 154, 0.22);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 248, 235, 0.03);
+}
+
+.accordion__trigger,
+.accordion__subtrigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border: 0;
+  background: transparent;
+  color: #f4ead7;
+  padding: 1rem 1.1rem;
+  min-height: 52px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion__subtrigger {
+  font-size: 0.95rem;
+  color: #f0d39a;
+  border-top: 1px solid rgba(240, 211, 154, 0.12);
+}
+
+.accordion__panel {
+  padding: 0 1rem 1rem;
+}
+
+.accordion__subsection + .accordion__subsection {
+  margin-top: 0.5rem;
+}
+
+.product-grid {
+  display: grid;
+  gap: 0.85rem;
+  padding-top: 0.75rem;
+}
