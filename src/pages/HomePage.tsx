@@ -11,8 +11,8 @@ export function HomePage() {
     <main>
       <section id="inicio" className="hero">
         <div className="hero__content">
-          <p className="eyebrow">Artesanía criolla</p>
-          <h1>{brand.name}</h1>
+          <p className="eyebrow">Platería criolla</p>
+          <h1 className="hero__brand">{brand.name}</h1>
           <p className="hero__tagline">{brand.tagline}</p>
           <div className="hero__actions">
             <a className="btn-primary" href="#productos">

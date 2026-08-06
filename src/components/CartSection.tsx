@@ -204,10 +204,7 @@ export function CartSection() {
                   Enviar pedido por WhatsApp
                 </a>
               ) : (
-                <p className="hint">
-                  Para activar WhatsApp, cargá el número en{' '}
-                  <code>VITE_WHATSAPP_NUMBER</code>.
-                </p>
+                
               )}
 
               {status === 'error' && errorMessage ? (

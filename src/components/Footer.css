@@ -16,6 +16,9 @@
 }
 
 .site-footer__inner strong {
+  font-family: var(--font-brand);
+  font-weight: 700;
+  letter-spacing: 0.03em;
   color: #f0d39a;
   display: block;
   margin-bottom: 0.25rem;

@@ -23,11 +23,16 @@
   margin-bottom: 0.75rem;
 }
 
-.hero h1 {
+.hero h1,
+.hero__brand {
   margin: 0;
-  font-size: clamp(1.75rem, 8vw, 3.4rem);
+  font-family: var(--font-brand);
+  font-size: clamp(1.85rem, 7.5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
   line-height: 1.12;
   color: #f7ecd8;
+  text-wrap: balance;
 }
 
 .hero__tagline {

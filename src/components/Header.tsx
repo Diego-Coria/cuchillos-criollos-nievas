@@ -29,11 +29,7 @@ export function Header() {
     <header className="site-header">
       <div className="site-header__inner">
         <a className="brand" href="#inicio" onClick={closeMenu}>
-          <span className="brand__mark">CN</span>
-          <span className="brand__text">
-            <strong>{brand.name}</strong>
-            <small>Espacio reservado para logo</small>
-          </span>
+          <span className="brand__name">{brand.name}</span>
         </a>
 
         <div className="header-actions">
