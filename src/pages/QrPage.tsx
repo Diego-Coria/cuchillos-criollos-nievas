@@ -69,7 +69,6 @@ export function QrPage() {
           </div>
           <div className="qr-page__links">
             <Link to="/">Volver al sitio</Link>
-            <Link to="/admin">Admin</Link>
           </div>
         </div>
 

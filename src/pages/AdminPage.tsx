@@ -10,7 +10,7 @@ export function AdminPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [sessionEmail, setSessionEmail] = useState<string | null>(null)
-  const [products, setProducts] = useState<Product[]>(seedProducts)
+  const [products, setProducts] = useState<Product[]>([])
   const [message, setMessage] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
@@ -31,7 +31,10 @@ export function AdminPage() {
   }, [])
 
   useEffect(() => {
-    if (!sessionEmail || !supabase) return
+    if (!sessionEmail || !supabase) {
+      setProducts([])
+      return
+    }
 
     async function load() {
       const { data, error } = await supabase!
@@ -44,7 +47,7 @@ export function AdminPage() {
         return
       }
 
-      if (data) {
+      if (data && data.length > 0) {
         setProducts(
           data.map((row) => {
             const priceRaw = row.price
@@ -70,7 +73,10 @@ export function AdminPage() {
             }
           }),
         )
+        return
       }
+
+      setProducts(seedProducts)
     }
 
     void load()
@@ -79,7 +85,7 @@ export function AdminPage() {
   async function handleLogin(event: FormEvent) {
     event.preventDefault()
     if (!supabase) {
-      setMessage('Configurá Supabase en el archivo .env para usar el admin.')
+      setMessage('El panel admin no está habilitado en este sitio.')
       return
     }
 
@@ -101,14 +107,13 @@ export function AdminPage() {
   async function handleLogout() {
     if (!supabase) return
     await supabase.auth.signOut()
+    setProducts([])
     setMessage('Sesión cerrada.')
   }
 
   async function saveProduct(product: Product) {
-    if (!supabase) {
-      setMessage(
-        'Modo local: los cambios no se guardan hasta configurar Supabase.',
-      )
+    if (!supabase || !sessionEmail) {
+      setMessage('Tenés que iniciar sesión para guardar cambios.')
       return
     }
 
@@ -140,32 +145,29 @@ export function AdminPage() {
     )
   }
 
+  const canManage = Boolean(isSupabaseConfigured && sessionEmail)
+
   return (
     <main className="admin-page">
       <div className="admin-page__inner">
         <div className="admin-top">
           <div>
             <h1>Panel administrador</h1>
-            <p>
-              Acá Francisco puede cambiar precios y fotos sin tocar el código.
-              Los productos son a pedido, no hay stock.
-            </p>
+            <p>Acceso restringido. Solo personal autorizado.</p>
           </div>
           <div className="admin-top__links">
             <Link to="/">Volver al sitio</Link>
-            <Link to="/qr">Código QR</Link>
           </div>
         </div>
 
         {!isSupabaseConfigured ? (
           <div className="admin-banner">
-            Supabase todavía no está configurado. Mientras tanto ves el catálogo
-            local. Cuando armes el proyecto en Supabase y completes el{' '}
-            <code>.env</code>, este panel guarda cambios reales.
+            Este panel está desactivado. Los precios del sitio se actualizan
+            desde el código y no se pueden cambiar desde acá.
           </div>
         ) : null}
 
-        {!sessionEmail ? (
+        {isSupabaseConfigured && !sessionEmail ? (
           <form className="admin-login" onSubmit={handleLogin}>
             <h2>Ingresar</h2>
             <label>
@@ -173,6 +175,7 @@ export function AdminPage() {
               <input
                 type="email"
                 required
+                autoComplete="username"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -182,6 +185,7 @@ export function AdminPage() {
               <input
                 type="password"
                 required
+                autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -190,7 +194,9 @@ export function AdminPage() {
               {loading ? 'Ingresando…' : 'Entrar'}
             </button>
           </form>
-        ) : (
+        ) : null}
+
+        {sessionEmail ? (
           <div className="admin-session">
             <p>
               Conectado como <strong>{sessionEmail}</strong>
@@ -199,60 +205,65 @@ export function AdminPage() {
               Cerrar sesión
             </button>
           </div>
-        )}
+        ) : null}
 
         {message ? <p className="admin-message">{message}</p> : null}
 
-        <div className="admin-list">
-          {products.map((product) => (
-            <article key={product.id} className="admin-card">
-              <label>
-                Nombre
-                <input
-                  value={product.name}
-                  onChange={(e) =>
-                    updateLocal(product.id, { name: e.target.value })
-                  }
-                />
-              </label>
-              <label>
-                Precio (vacío = a consultar)
-                <input
-                  type="number"
-                  min={0}
-                  value={product.price ?? ''}
-                  onChange={(e) =>
-                    updateLocal(product.id, {
-                      price:
-                        e.target.value.trim() === ''
-                          ? null
-                          : Number(e.target.value) || 0,
-                    })
-                  }
-                />
-              </label>
-              <label>
-                URL de imagen
-                <input
-                  value={product.imageUrl ?? ''}
-                  onChange={(e) =>
-                    updateLocal(product.id, {
-                      imageUrl: e.target.value || null,
-                      imageUrls: e.target.value ? [e.target.value] : [],
-                    })
-                  }
-                  placeholder="https://..."
-                />
-              </label>
-              <div className="admin-card__footer">
-                <span>{formatProductPrice(product.price)}</span>
-                <button type="button" onClick={() => void saveProduct(product)}>
-                  Guardar
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
+        {canManage ? (
+          <div className="admin-list">
+            {products.map((product) => (
+              <article key={product.id} className="admin-card">
+                <label>
+                  Nombre
+                  <input
+                    value={product.name}
+                    onChange={(e) =>
+                      updateLocal(product.id, { name: e.target.value })
+                    }
+                  />
+                </label>
+                <label>
+                  Precio (vacío = a consultar)
+                  <input
+                    type="number"
+                    min={0}
+                    value={product.price ?? ''}
+                    onChange={(e) =>
+                      updateLocal(product.id, {
+                        price:
+                          e.target.value.trim() === ''
+                            ? null
+                            : Number(e.target.value) || 0,
+                      })
+                    }
+                  />
+                </label>
+                <label>
+                  URL de imagen
+                  <input
+                    value={product.imageUrl ?? ''}
+                    onChange={(e) =>
+                      updateLocal(product.id, {
+                        imageUrl: e.target.value || null,
+                        imageUrls: e.target.value ? [e.target.value] : [],
+                      })
+                    }
+                    placeholder="https://..."
+                  />
+                </label>
+                <div className="admin-card__footer">
+                  <span>{formatProductPrice(product.price)}</span>
+                  <button
+                    type="button"
+                    onClick={() => void saveProduct(product)}
+                  >
+                    Guardar
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : null}
       </div>
     </main>
   )

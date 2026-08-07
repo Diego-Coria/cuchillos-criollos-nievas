@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { brand, socialLinks } from '../data/catalog'
 import './Header.css'
@@ -88,9 +87,6 @@ export function Header() {
             >
               TikTok
             </a>
-            <NavLink to="/admin" className="admin-link" onClick={closeMenu}>
-              Admin
-            </NavLink>
           </div>
         </nav>
       </div>

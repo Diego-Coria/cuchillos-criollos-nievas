@@ -126,11 +126,6 @@
   align-items: center;
 }
 
-.admin-link {
-  color: #c9b89a !important;
-  border-color: rgba(201, 184, 154, 0.25) !important;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;

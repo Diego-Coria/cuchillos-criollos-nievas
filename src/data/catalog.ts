@@ -237,8 +237,6 @@ Fue mi padre quien me enseñó el oficio de la orfebrería y, más importante a�
 
 Durante mucho tiempo nuestros cuchillos se encontraban únicamente en las fiestas criollas y jineteadas de todo el país. Mi padre recorría cada encuentro con su puesto, llevando cuchillos, pilchas y el trabajo de muchos artesanos argentinos a cada rincón donde se vivía la tradición.
 
-La llegada de la pandemia cambió esa realidad. Al suspenderse todas las fiestas, decidimos llevar nuestro trabajo al mundo digital. Desde entonces comenzamos a vender de manera online y hoy enviamos nuestros cuchillos a todo el país, acercando la tradición criolla a miles de hogares.
-
 Con el paso de los años seguí perfeccionándome, estudiando orfebrería y platería para mejorar cada detalle de mi trabajo y ofrecer piezas de la mayor calidad posible.
 
 Pero Cuchillos Criollos Nievas no es solamente el trabajo de un artesano. Es el resultado del esfuerzo de grandes colegas de todo nuestro país. Trabajamos con hojas forjadas artesanalmente y tratadas térmicamente por reconocidos maestros cuchilleros argentinos. Del mismo modo, nuestras vainas y trabajos de soguería y talabartería son realizados junto a destacados artesanos que comparten el mismo compromiso con la calidad y la tradición.
