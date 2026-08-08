@@ -73,15 +73,3 @@ Por seguridad, **no** se muestran en pantalla ni van hardcodeados en el código.
 El flujo actual abre el correo del comprador/vendedor con el resumen del pedido; Francisco responde con los datos de pago.  
 Más adelante se puede automatizar el email de respuesta con Resend / Edge Function sin exponer CBU/alias en el frontend.
 
-## WhatsApp
-
-El botón usa un enlace `https://wa.me/...` con el pedido precargado. **No tiene costo.**  
-La API oficial de WhatsApp Business sí puede tener costos; no hace falta para esta versión.
-
-## Próximos pasos sugeridos
-
-1. Pedirle a Francisco el número de WhatsApp con código de país.
-2. Subir fotos reales (Supabase Storage o URLs).
-3. Agregar logo cuando esté listo.
-4. Deploy en Vercel y generar el QR definitivo en `/qr`.
-5. (Opcional) email automático al comprador con instrucciones de pago.
