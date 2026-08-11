@@ -121,6 +121,7 @@ export const seedProducts: Product[] = [
     category: 'accesorios',
     line: null,
     sortOrder: 9,
+    imageCount: 2,
   }),
   withImages({
     id: 'cabo-especial',
@@ -142,6 +143,18 @@ export const seedProducts: Product[] = [
     category: 'otros-trabajos',
     line: null,
     sortOrder: 11,
+    imageCount: 9,
+  }),
+  withImages({
+    id: 'dogo-burdeos',
+    name: 'Cuchillo Dogo de Burdeos',
+    description:
+      'Pieza artesanal a medida. El precio se define según el pedido del cliente.',
+    price: null,
+    bladeLengthCm: null,
+    category: 'otros-trabajos',
+    line: null,
+    sortOrder: 12,
     imageCount: 2,
   }),
   withImages({
@@ -153,8 +166,8 @@ export const seedProducts: Product[] = [
     bladeLengthCm: null,
     category: 'otros-trabajos',
     line: null,
-    sortOrder: 12,
-    imageCount: 12,
+    sortOrder: 13,
+    imageCount: 3,
   }),
   withImages({
     id: 'patrios',
@@ -165,7 +178,7 @@ export const seedProducts: Product[] = [
     bladeLengthCm: null,
     category: 'otros-trabajos',
     line: null,
-    sortOrder: 13,
+    sortOrder: 14,
     imageCount: 6,
   }),
   withImages({
@@ -177,7 +190,7 @@ export const seedProducts: Product[] = [
     bladeLengthCm: null,
     category: 'otros-trabajos',
     line: null,
-    sortOrder: 14,
+    sortOrder: 15,
     imageCount: 4,
   }),
   withImages({
@@ -189,7 +202,7 @@ export const seedProducts: Product[] = [
     bladeLengthCm: null,
     category: 'otros-trabajos',
     line: null,
-    sortOrder: 15,
+    sortOrder: 16,
     imageCount: 3,
   }),
   withImages({
@@ -201,7 +214,7 @@ export const seedProducts: Product[] = [
     bladeLengthCm: null,
     category: 'otros-trabajos',
     line: null,
-    sortOrder: 16,
+    sortOrder: 17,
     imageCount: 1,
   }),
 ]

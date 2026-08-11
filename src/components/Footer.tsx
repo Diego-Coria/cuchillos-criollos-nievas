@@ -12,6 +12,16 @@ export function Footer() {
         </div>
         <SocialLinksRow className="site-footer__social" />
       </div>
+      <p className="site-footer__credit">
+        Desarrollo:{' '}
+        <a
+          href="https://www.linkedin.com/in/diego-coria-dev"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Diego Coria
+        </a>
+      </p>
     </footer>
   )
 }
