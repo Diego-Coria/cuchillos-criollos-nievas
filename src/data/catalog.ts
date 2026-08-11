@@ -223,7 +223,7 @@ export const lineLabels: Record<NonNullable<Product['line']>, string> = {
 export const socialLinks = {
   facebook: 'https://www.facebook.com/cuchillosnievas/?mibextid=ZbWKwL',
   instagram:
-    'https://www.instagram.com/invites/contact/?i=1emnchft98022&utm_content=m28o4os',
+    'https://www.instagram.com/cuchillos_nievas?utm_source=qr',
   tiktok: 'https://www.tiktok.com/@cuchilloscriollosnievas?_t=8fUXgVMmYEQ&_r=1',
 }
 

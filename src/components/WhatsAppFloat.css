@@ -1,0 +1,38 @@
+.wa-float {
+  position: fixed;
+  right: max(0.9rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 50;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  text-decoration: none;
+}
+
+.wa-float svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+  shape-rendering: geometricPrecision;
+}
+
+.wa-float:hover,
+.wa-float:focus-visible {
+  background: #1ebe5d;
+  outline: 2px solid #f0d39a;
+  outline-offset: 2px;
+}
+
+@media (max-width: 639px) {
+  .wa-float {
+    width: 52px;
+    height: 52px;
+    right: max(0.75rem, env(safe-area-inset-right));
+    bottom: max(0.85rem, env(safe-area-inset-bottom));
+  }
+}

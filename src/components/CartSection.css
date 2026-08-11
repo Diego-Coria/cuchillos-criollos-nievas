@@ -1,3 +1,7 @@
+.cart-section {
+  padding-bottom: 5.5rem;
+}
+
 .cart-section .cart-layout {
   display: grid;
   grid-template-columns: 1fr;

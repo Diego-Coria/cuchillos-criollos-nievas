@@ -5,6 +5,7 @@ import { Footer } from './components/Footer'
 import { HomePage } from './pages/HomePage'
 import { AdminPage } from './pages/AdminPage'
 import { QrPage } from './pages/QrPage'
+import { WhatsAppFloat } from './components/WhatsAppFloat'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
                 <Header />
                 <HomePage />
                 <Footer />
+                <WhatsAppFloat />
               </>
             }
           />
