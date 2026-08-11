@@ -1,0 +1,32 @@
+.header-social a,
+.social-row a,
+.site-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.header-social svg,
+.social-row svg,
+.site-footer__social svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  display: block;
+  shape-rendering: geometricPrecision;
+}
+
+.header-social svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.social-row svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.site-footer__social svg {
+  width: 1rem;
+  height: 1rem;
+}

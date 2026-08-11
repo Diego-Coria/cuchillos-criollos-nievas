@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useCart } from '../context/CartContext'
-import { brand, socialLinks } from '../data/catalog'
+import { brand } from '../data/catalog'
+import { SocialLinksRow } from './SocialIcons'
 import './Header.css'
 
 const navItems = [
@@ -62,32 +63,7 @@ export function Header() {
             </a>
           ))}
 
-          <div className="header-social">
-            <a
-              href={socialLinks.facebook}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Facebook"
-            >
-              Facebook
-            </a>
-            <a
-              href={socialLinks.instagram}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-            >
-              Instagram
-            </a>
-            <a
-              href={socialLinks.tiktok}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="TikTok"
-            >
-              TikTok
-            </a>
-          </div>
+          <SocialLinksRow className="header-social" onNavigate={closeMenu} />
         </nav>
       </div>
     </header>

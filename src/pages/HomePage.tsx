@@ -1,4 +1,5 @@
-import { brand, socialLinks } from '../data/catalog'
+import { brand } from '../data/catalog'
+import { SocialLinksRow } from '../components/SocialIcons'
 import { useProducts } from '../hooks/useProducts'
 import { ProductAccordion } from '../components/ProductAccordion'
 import { CartSection } from '../components/CartSection'
@@ -44,21 +45,7 @@ export function HomePage() {
               <p className="muted">
                 Abrazo criollo — {brand.artisan}, artesano orfebre.
               </p>
-              <div className="social-row">
-                <a href={socialLinks.facebook} target="_blank" rel="noreferrer">
-                  Facebook
-                </a>
-                <a
-                  href={socialLinks.instagram}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Instagram
-                </a>
-                <a href={socialLinks.tiktok} target="_blank" rel="noreferrer">
-                  TikTok
-                </a>
-              </div>
+              <SocialLinksRow className="social-row" />
             </div>
 
             <figure className="about-photo about-photo--right">
