@@ -6,7 +6,7 @@ import { CartSection } from '../components/CartSection'
 import './HomePage.css'
 
 export function HomePage() {
-  const { products, loading, source, error } = useProducts()
+  const { products } = useProducts()
 
   return (
     <main>
@@ -66,17 +66,6 @@ export function HomePage() {
             Abrí cada sección para ver medidas y precios. Todas las piezas se
             trabajan a medida.
           </p>
-          {loading ? <p className="muted">Cargando catálogo…</p> : null}
-          {error ? (
-            <p className="warning">
-              No se pudo leer Supabase ({error}). Mostrando catálogo local.
-            </p>
-          ) : null}
-          {!loading ? (
-            <p className="source-hint">
-              Fuente: {source === 'supabase' ? 'Supabase' : 'catálogo local de respaldo'}
-            </p>
-          ) : null}
           <ProductAccordion products={products} />
         </div>
       </section>

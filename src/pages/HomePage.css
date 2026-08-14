@@ -174,11 +174,6 @@
   color: #c9b89a;
 }
 
-.source-hint {
-  color: #9d8b6f;
-  font-size: 0.85rem;
-}
-
 .warning {
   color: #f0c28a;
   background: rgba(180, 110, 40, 0.15);

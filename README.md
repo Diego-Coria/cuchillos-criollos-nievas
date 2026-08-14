@@ -1,77 +1,82 @@
 # Cuchillos Criollos Nievas
 
-https://www.cuchilloscriollosnievas.com/
+Sitio web de catálogo y pedidos para **Francisco Nievas**, artesano orfebre de Avellaneda, Buenos Aires.
 
-Sitio web de catálogo y pedidos para **Francisco Nievas**, artesano orfebre.
+**En vivo:** [www.cuchilloscriollosnievas.com](https://www.cuchilloscriollosnievas.com/)
+
+Proyecto real para un cliente: piezas a medida, sin pago online. El comprador arma el pedido en la web y Francisco lo recibe por email automático y/o WhatsApp.
+
+Desarrollo: [Diego Coria](https://www.linkedin.com/in/diego-coria-dev)
+
+---
+
+## El problema
+
+Francisco vende cuchillos criollos, facones y trabajos de platería en ferias y por redes. No tenía una web propia: el catálogo vivía en fotos de WhatsApp e Instagram, y cada pedido se armaba a mano.
+
+Necesitaba algo simple de usar en el celular (la mayoría de sus clientes entra desde ahí), con precios claros, fotos reales y un flujo de pedido que no dependa de un checkout ni de una plataforma de pago.
+
+## La solución
+
+Una SPA mobile-first con catálogo por categorías, carrito persistente y confirmación de pedido por **email transaccional** (Resend, vía función serverless en Vercel) más un atajo a **WhatsApp**.
+
+Decisiones de producto que importan:
+
+- **Sin pago online.** 50% de seña y el resto antes de entregar; los datos bancarios no van en el frontend.
+- **Sin stock.** Todo se fabrica a pedido (45–60 días).
+- **Catálogo en código.** Evita un backend de base de datos pago y el riesgo de que un plan gratuito se pause cuando el cliente no lo va a mantener.
+- **Fotos propias** por producto (lightbox tipo galería).
+- **Página `/qr`** para ferias y el taller, apuntando al dominio público.
+
+## Capturas
+
+Próximamente: home, catálogo, detalle de producto, carrito y vista mobile.
 
 ## Stack
 
-- React + Vite + TypeScript
-- React Router
-- CSS propio (estilo criollo / artesanal)
-- Supabase (catálogo y panel admin)
-- Pedidos por email (`mailto`) y WhatsApp (`wa.me`) sin pago online
+| Capa | Tecnología |
+| --- | --- |
+| Front | React 19, TypeScript, Vite, React Router |
+| Estilos | CSS propio (tipografía Cinzel + Source Sans 3, tema criollo oscuro) |
+| Pedidos | Vercel Serverless (`/api/send-order`) + [Resend](https://resend.com) |
+| Contacto | WhatsApp (`wa.me`) con el resumen del pedido |
+| Hosting / DNS | Vercel (Hobby) + Cloudflare (`cuchilloscriollosnievas.com`) |
 
-## Qué incluye
+## Qué hay en el sitio
 
-- Inicio, Quiénes somos, Productos, Cómo comprar, Carrito
-- Desplegables por categoría y, en cuchillos de cintura, por línea
-- Carrito con datos del comprador
-- Confirmación por email al vendedor (`francisconievas1985@gmail.com`)
-- Botón de WhatsApp (gratis, sin API de pago)
-- Panel `/admin` para editar precios y fotos (productos a pedido, sin stock)
-- Página `/qr` para generar, descargar e imprimir el código QR del sitio
-- Diseño mobile-first (pensado para celulares de distintos tamaños)
-- Espacio reservado para logo en el header
+- Inicio, Quiénes somos, Productos, Cómo comprar y Carrito (una sola página con anclas)
+- Acordeones por categoría; en cuchillos de cintura, también por línea (Clásica / Airon Solingen)
+- Productos a consultar (otros trabajos) junto a piezas con precio fijo
+- Lightbox de fotos, botón flotante de WhatsApp y redes (Facebook, Instagram, TikTok)
+- Formulario de pedido: nombre, email, teléfono, ciudad y notas de personalización
+- Email al vendedor y al comprador al confirmar; el vendedor responde con los datos de pago
 
-## Arranque local
+## Cómo correrlo en local
 
 ```bash
 npm install
+cp .env.example .env
 npm run dev
 ```
 
-Copiá `.env.example` a `.env` y completá:
+Variables útiles en `.env`:
 
 ```env
-VITE_SUPABASE_URL=...
-VITE_SUPABASE_ANON_KEY=...
-VITE_SELLER_EMAIL=francisconievas1985@gmail.com
 VITE_WHATSAPP_NUMBER=54911XXXXXXXX
-VITE_SITE_URL=https://tu-dominio.vercel.app
+VITE_SITE_URL=https://www.cuchilloscriollosnievas.com
+VITE_SELLER_EMAIL=francisconievas1985@gmail.com
 ```
 
-Sin Supabase, la web igual funciona con el catálogo local de respaldo.
+Los envíos de mail (`RESEND_API_KEY`, `ORDER_FROM_EMAIL`, `SELLER_EMAIL`) se configuran en Vercel, **sin** prefijo `VITE_`, para que la API key no salga al navegador.
 
-## Código QR
-
-1. Publicá el sitio (recomendado: Vercel).
-2. Configurá `VITE_SITE_URL` con la URL pública definitiva.
-3. Abrí `/qr` (también hay un link desde `/admin`).
-4. Descargá el PNG o imprimilo para ferias, tarjetas o el taller.
-
-Mientras no haya dominio, `/qr` usa la URL actual del navegador (útil para probar en local con el celular en la misma red).
+```bash
+npm run build
+```
 
 ## Mobile
 
-La web está pensada primero para celular:
+Pensado primero para celular: menú hamburguesa, targets táctiles (~44px), tipografía fluida, anti-zoom de iOS en formularios y `safe-area` para notch / barra inferior.
 
-- Menú hamburguesa en pantallas chicas
-- Botones e inputs táctiles (mínimo ~44px)
-- Tipografía fluida (`clamp`)
-- Evita zoom automático de iOS en formularios
-- Soporte de safe-area (notch / barra inferior)
+## Licencia
 
-## Supabase
-
-1. Creá un proyecto en Supabase.
-2. Ejecutá `supabase/schema.sql` en el SQL Editor.
-3. Creá un usuario (Authentication → Users) para Francisco.
-4. Pegá URL y anon key en `.env`.
-
-## Datos bancarios
-
-Por seguridad, **no** se muestran en pantalla ni van hardcodeados en el código.  
-El flujo actual abre el correo del comprador/vendedor con el resumen del pedido; Francisco responde con los datos de pago.  
-Más adelante se puede automatizar el email de respuesta con Resend / Edge Function sin exponer CBU/alias en el frontend.
-
+Código de un encargo privado. El contenido, las fotos y la marca pertenecen a Francisco Nievas.

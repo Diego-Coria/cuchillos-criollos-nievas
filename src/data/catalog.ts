@@ -57,6 +57,7 @@ export const seedProducts: Product[] = [
     category: 'cuchillos-cintura',
     line: 'airon-solingen',
     sortOrder: 3,
+    imageCount: 2,
   }),
   withImages({
     id: 'airon-30',
@@ -100,6 +101,7 @@ export const seedProducts: Product[] = [
     category: 'facones',
     line: null,
     sortOrder: 7,
+    imageCount: 2,
   }),
   withImages({
     id: 'facon-caronero',
@@ -132,6 +134,7 @@ export const seedProducts: Product[] = [
     category: 'personalizacion',
     line: null,
     sortOrder: 10,
+    imageCount: 3,
   }),
   withImages({
     id: 'dogo',
