@@ -14,28 +14,14 @@ Desarrollo: [Diego Coria](https://www.linkedin.com/in/diego-coria-dev)
 
 Flujo principal del usuario:
 
-### 1) Home
+
 ![Home](docs/capturas/1.png)
-
-### 2) Catálogo de productos
 ![Productos](docs/capturas/2.png)
-
-### 3) Detalle de producto (lightbox)
 ![Detalle de producto](docs/capturas/3.png)
-
-### 4) Carrito y confirmación de pedido
 ![Carrito](docs/capturas/4.png)
-
-### 5) Quiénes somos
 ![Quiénes somos](docs/capturas/5.png)
-
-### 6) Cómo comprar
 ![Cómo comprar](docs/capturas/6.png)
-
-### 7) Página de QR para ferias/taller
 ![QR](docs/capturas/7.png)
-
-### 8) Vista mobile
 ![Vista mobile](docs/capturas/8.png)
 
 ## El problema
