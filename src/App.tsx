@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
 import { Header } from './components/Header'
@@ -10,6 +11,7 @@ import { WhatsAppFloat } from './components/WhatsAppFloat'
 export default function App() {
   return (
     <BrowserRouter>
+      <Analytics />
       <CartProvider>
         <Routes>
           <Route

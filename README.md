@@ -10,6 +10,34 @@ Desarrollo: [Diego Coria](https://www.linkedin.com/in/diego-coria-dev)
 
 ---
 
+## Capturas
+
+Flujo principal del usuario:
+
+### 1) Home
+![Home](docs/capturas/1.png)
+
+### 2) Catálogo de productos
+![Productos](docs/capturas/2.png)
+
+### 3) Detalle de producto (lightbox)
+![Detalle de producto](docs/capturas/3.png)
+
+### 4) Carrito y confirmación de pedido
+![Carrito](docs/capturas/4.png)
+
+### 5) Quiénes somos
+![Quiénes somos](docs/capturas/5.png)
+
+### 6) Cómo comprar
+![Cómo comprar](docs/capturas/6.png)
+
+### 7) Página de QR para ferias/taller
+![QR](docs/capturas/7.png)
+
+### 8) Vista mobile
+![Vista mobile](docs/capturas/8.png)
+
 ## El problema
 
 Francisco vende cuchillos criollos, facones y trabajos de platería en ferias y por redes. No tenía una web propia: el catálogo vivía en fotos de WhatsApp e Instagram, y cada pedido se armaba a mano.
@@ -27,10 +55,6 @@ Decisiones de producto que importan:
 - **Catálogo en código.** Evita un backend de base de datos pago y el riesgo de que un plan gratuito se pause cuando el cliente no lo va a mantener.
 - **Fotos propias** por producto (lightbox tipo galería).
 - **Página `/qr`** para ferias y el taller, apuntando al dominio público.
-
-## Capturas
-
-Próximamente: home, catálogo, detalle de producto, carrito y vista mobile.
 
 ## Stack
 
