@@ -73,9 +73,6 @@ Los envíos de mail (`RESEND_API_KEY`, `ORDER_FROM_EMAIL`, `SELLER_EMAIL`) se co
 npm run build
 ```
 
-## Mobile
-
-Pensado primero para celular: menú hamburguesa, targets táctiles (~44px), tipografía fluida, anti-zoom de iOS en formularios y `safe-area` para notch / barra inferior.
 
 ## Licencia
 
